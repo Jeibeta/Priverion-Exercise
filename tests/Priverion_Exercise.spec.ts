@@ -1,18 +1,20 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test('Priverion_Exercise',async({ page }) => {
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+//Login in PriverionPlatform
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+    console.time('gotopage')
+    await page.goto('https://hwazicsshi-testing.priverion.dev/login')
+    console.timeEnd('gotopage')
+    console.time('fillemail')
+    await page.getByRole('textbox',{name:'E-Mail Address'}).fill('jeison.herrera1592@gmail.com')
+    console.timeEnd('fillemail')
+    console.time('fillpassword')
+    await page.getByRole('textbox',{name:'Password'}).fill('Jeisonpruebapriverion12345@')
+    console.timeEnd('fillpassword')
+    //await page.getByRole('button',{name:'Login'}).click()
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-});
+
+})
